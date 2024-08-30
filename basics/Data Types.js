@@ -4,7 +4,7 @@ age = 18;                                                                       
 bloodGroup = "A"                                                            //string
 weight = 70.2                                                                  //Number                 
 isMarried=false                                                           //Bolean      
-gf=null;                                                                        //Null
+gf=null;                                                              //Null
 nothing = NaN                                                       //Not a Number (is still type of number)
 let notProvided;                                                //Undefined
 let array = [1,2,3,4,5 ] ;                                   //Object Data Type

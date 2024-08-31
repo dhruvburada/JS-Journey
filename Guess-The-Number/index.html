@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Numbers</title>
+
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        header
+        {
+            padding: 1.5rem;
+            font-size: 21px;
+            background-color: rgb(209, 202, 202);
+        }
+
+        body
+        {
+                    background: rgb(2,0,36);
+                    background: linear-gradient(115deg, rgba(2,0,36,1) 0%, rgba(0,0,218,1) 99%, rgba(0,212,255,1) 100%);
+        }
+
+        h3
+        {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .container
+        {
+            padding: 1.5rem;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 5%;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        p
+        {
+            color: white;
+        }
+
+        input
+        {
+            width: 200px;
+            padding: 10px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        input:focus
+        {
+            outline: none;
+        }
+
+        button
+        {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+
+        button:hover
+        {
+            cursor: pointer;
+        }
+
+        span
+        {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+        <h3>Guess The Number</h3>
+        <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+        <center><input type="text" placeholder="Enter Your Guess" id="userinput"><button onclick="Guess()">Guess</button></center>
+        <span id="previous"></span>
+        <span id="output"></span>
+   </div>
+</body>
+</html>
+
+
+<script>
+    let randomnumber =Math.ceil(1+Math.random()*100);
+    let attempts = 0;
+    let previous = [];
+    
+    function Guess() {
+        let userinput = document.getElementById("userinput").value;
+        console.log(randomnumber)
+
+
+    if(userinput == randomnumber)
+    {
+    document.getElementById("previous").innerHTML = "Congratulations! You guessed the number correctly in " + attempts + " attempts.";
+    document.getElementById("output").innerHTML = "Enter Number and click on Guess to play again.";
+    previous = [];
+    attempts=0;
+
+    }
+
+    else if (userinput>randomnumber)
+    {
+        document.getElementById("output").innerHTML = `It is lower than ${userinput}`;
+        previous.push(userinput);
+        document.getElementById("previous").innerHTML = `Previous Attempts : ${previous}`;
+        attempts++;
+    }
+    else
+
+    {
+         document.getElementById("output").innerHTML = `It is higher than ${userinput}`;
+         previous.push(userinput);
+         document.getElementById("previous").innerHTML = `Previous Attempts : ${previous}`;
+         attempts++;
+    }
+    }
+    
+
+
+</script>

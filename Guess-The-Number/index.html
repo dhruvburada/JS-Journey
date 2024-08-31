@@ -96,17 +96,17 @@
 
 
 <script>
-    let randomnumber =Math.ceil(1+Math.random()*100);
+    let randomnumber =Math.ceil(Math.random()*100)+1;
     let attempts = 0;
     let previous = [];
     
     function Guess() {
         let userinput = document.getElementById("userinput").value;
-        console.log(randomnumber)
+        console.log(randomnumber);
 
-
-    if(userinput == randomnumber)
+    if(userinput == randomnumber &&  attempts<10)
     {
+    document.getElementById("userinput").value ="";
     document.getElementById("previous").innerHTML = "Congratulations! You guessed the number correctly in " + attempts + " attempts.";
     document.getElementById("output").innerHTML = "Enter Number and click on Guess to play again.";
     previous = [];
@@ -114,20 +114,30 @@
 
     }
 
-    else if (userinput>randomnumber)
+    else if (userinput>randomnumber && attempts<10)
     {
         document.getElementById("output").innerHTML = `It is lower than ${userinput}`;
         previous.push(userinput);
         document.getElementById("previous").innerHTML = `Previous Attempts : ${previous}`;
         attempts++;
     }
-    else
+    else if(userinput<randomnumber && attempts<10)
 
     {
          document.getElementById("output").innerHTML = `It is higher than ${userinput}`;
          previous.push(userinput);
          document.getElementById("previous").innerHTML = `Previous Attempts : ${previous}`;
          attempts++;
+    }
+    else
+    {
+        document.getElementById("userinput").value ="";
+        document.getElementById("previous").innerHTML = "Sorry, you've exceeded the maximum number of attempts. The number was " + randomnumber + ".";
+        document.getElementById("output").innerHTML = "Enter Number and click on Guess to play again.";
+        previous = [];
+        attempts=0;
+
+        randomnumber = Math.ceil(1+Math.random()*100);
     }
     }
     

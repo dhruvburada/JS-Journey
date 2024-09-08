@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(39, 84, 229);
+        }
+
+        .container
+        {
+            margin: 100px 200px;
+            padding: 17px 0 17px 0;
+            background-color: white;
+            box-shadow: 2px 2px 2px black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #output
+        {
+            font-size: 25;
+            color: red;
+            margin-top: 10px;
+        }
+
+        input
+        {
+            margin-top: 1.5rem;
+
+        }
+
+        button
+        {
+            margin-top: 1.5rem;
+            background-color:transparent;
+            color: black;
+            transition: all 0.5 ease;
+            border-radius: 5px;
+        
+            padding: 1rem;
+        }
+
+        button:hover
+        {
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            border: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        
+            Enter Your Birth Date : <input type="date" name="" id="date" min="1900-01-01">
+            <button type="submit" onclick="calcAge();"  >Calculate Age</button>
+            <span id="output"></span>
+
+    
+    </div>
+
+    <script>
+        let dateController = document.getElementById("date");
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        dateController.setAttribute("max",`${currentYear}-01-01`);
+        function calcAge()
+        {
+            let birthDate = dateController.value;
+
+            let birthYear = parseInt(birthDate.split("-")[0]);
+
+            let age = currentYear - birthYear;
+
+            document.getElementById("output").innerHTML = "Your age is: " + age+" Years";
+        }
+    </script>
+</body>
+</html>

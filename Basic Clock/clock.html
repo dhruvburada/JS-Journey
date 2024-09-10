@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Design</title>
+</head>
+
+<style>
+
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body
+    {
+        background-color: black;
+        color:white
+        
+    }
+    .timebox
+    {
+        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    #container
+
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    input[type="text"]
+    {
+        margin-top:45px ;
+        padding: 5px;
+        width: 75px;
+        
+    }
+
+    button
+    {
+        margin-top: 45px;
+        padding: 5px;
+    }
+
+
+    #timeinputs
+    {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+
+    button
+    {
+        background-color: black;
+        border: white solid 1px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        transition: all 0.5s ease;
+
+    }
+
+    button:hover
+    {
+        background-color: white;
+        border: black solid 1px;
+        color: black;
+    }
+
+
+    
+
+</style>
+<body>
+
+        <div class="timebox">
+            <h3>Current Time</h3>
+            <h1 id="realtime">Time</h1>
+        </div>
+
+        <div id="container">
+            <div id="timeinputs">
+                <input type="text" placeholder="Enter hour">
+                <input type="text" placeholder="Enter Mins">
+                <button onclick="setAlarm()">Set Alarm</button>
+            </div>
+            <span id="output"></span>
+
+            
+        </div>
+
+
+    
+
+</body>
+</html>
+
+<script>
+
+    let date;
+    let hours;
+    let min;
+    let sec;
+    setInterval(function() {
+        date = new Date();
+        hours = date.getHours();
+        min = date.getMinutes();
+        sec = date.getSeconds();
+
+        document.getElementById("realtime").innerHTML = `${hours} : ${min} : ${sec}`
+    }
+    , 1000); // updates every second 1000 milliseconds = 1 second)
+        
+
+    function setAlarm() {
+        
+        let AlarmHour = parseInt(document.getElementById("timeinputs").children[0].value);
+        let Alarmmin = parseInt(document.getElementById("timeinputs").children[1].value);
+        document.getElementById("output").innerHTML = `Alarm set to ${AlarmHour} - ${Alarmmin}`
+
+       const intervalid =  setInterval(() => {
+            console.log("Interval working")
+            if(AlarmHour >= hours  && min >= Alarmmin)
+            {
+            alert("Hey , Wake up!");
+            clearInterval(intervalid);
+            
+            }
+        }, 1000);
+
+    }
+
+
+</script>

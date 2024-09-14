@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+
+    <style>
+        *
+        {
+            margin: 0px;
+            padding: 0px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header
+        {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        body
+        {
+            background-color: #f4f4f9;
+            max-height: 100vh;
+        }
+
+        main
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3%;
+        
+        }
+
+        button,input
+        {
+            padding: 10px;
+            margin-top:1em;
+        }
+
+        
+
+        button
+        {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        h3
+        {
+            margin-bottom: 2vi;
+        }
+        .habits-list
+        {
+            margin-top:3%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #habit1
+        {
+            margin-left: 20px;
+            margin-right: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 1.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+       <h1>My Habit Tracker</h1>
+    </header>
+
+    <main>
+
+        <h3 >Add new Habit</h3>
+
+        
+            <div>
+                <input type="text" placeholder="Enter new Habit">
+                <input type="text" placeholder="Add Description">
+                <input type="text" placeholder="Add Duration">
+                <button>Add Habit</button>
+            </div>
+    
+        
+        <div class="habits-list">
+            <h3>Your Habits</h3>
+
+            <div id="habit1">
+                <h4>Gratitude</h4>
+                <p>List all the things you are thankful for</p>
+                <p>Duration 2 mins</p>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+</body>
+</html>

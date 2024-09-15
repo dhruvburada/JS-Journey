@@ -44,7 +44,7 @@
         button,input
         {
             padding: 10px;
-            margin-top:1em;
+           
         }
 
         
@@ -93,7 +93,41 @@
             align-items: center;
             justify-content: center;
         }
+
+        i
+        {
+            cursor: pointer;
+        }
         
+        .habit-status
+        {
+            border: solid #4CAF50 1px;
+            border-radius: 50%;
+            height: 1.3em;
+            width: 1.3em;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .habit-status:checked
+        {
+            background-color: #4CAF50;
+        }
+
+        .habit-header
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding: 20px;
+            border-radius: 1.5rem;
+            gap: 178px;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -117,19 +151,27 @@
         <div class="habits-list">
             <h3>Your Habits</h3>
 
+            <div class="habit-header" >
+                <h4>Habit</h4>
+                <h4>Duration</h4>
+                <h4>Action</h4>
+            </div>
+
             <div id="habit1">
                 <div>
                     <h4>Gratitude</h4>
                     <p>List all the things you are thankful for</p>
                 </div>
                 <div>
-                    <p>Duration 2 mins</p>
+                    <p>2 mins</p>
                 </div>
                 <div>
                     <i class="fa fa-edit"></i>
                 </div>
-               
-                    <button class="secondary-button"><i class="fa fa-trash"></i></button>
+                
+                <button class="secondary-button"><i class="fa fa-trash"></i></button>
+
+                <input type="checkbox" class="habit-status" id="habit-status-1">
                 
                 
             </div>

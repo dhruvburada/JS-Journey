@@ -69,12 +69,13 @@
             align-items: center;
         }
 
-        #habit1
+        #habit
         {
             display: flex;
             align-items: center;
             margin-left: 20px;
             margin-right: 20px;
+            margin-top: 10px;
             background-color: white;
             padding: 20px;
             border-radius: 1.5rem;
@@ -99,7 +100,7 @@
             cursor: pointer;
         }
         
-        .habit-status
+        .habit-status-completed
         {
             border: solid #4CAF50 1px;
             border-radius: 50%;
@@ -110,10 +111,32 @@
             -webkit-appearance: none;
         }
 
-        .habit-status:checked
+        .habit-status-completed:checked
         {
             background-color: #4CAF50;
         }
+
+
+        .habit-status-skipped
+        {
+            border: solid #e41f1f 1px;
+            border-radius: 50%;
+            height: 1.3em;
+            width: 1.3em;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .habit-status-skipped:checked
+        {
+            background-color: #e41f1f;
+        }
+
+        .habit-status-completed:checked
+        {
+            background-color: #4CAF50;
+        }
+
 
         .habit-header
         {
@@ -125,12 +148,12 @@
             margin-right: 20px;
             padding: 20px;
             border-radius: 1.5rem;
-            gap: 178px;
+            gap: 251px;
             margin-bottom: 1rem;
         }
     </style>
 </head>
-<body>
+<body onload="loadData()">
     <header>
        <h1>My Habit Tracker</h1>
     </header>
@@ -157,7 +180,8 @@
                 <h4>Action</h4>
             </div>
 
-            <div id="habit1">
+            <div class="habit-container">
+            <div id="habit">
                 <div>
                     <h4>Gratitude</h4>
                     <p>List all the things you are thankful for</p>
@@ -170,8 +194,18 @@
                 </div>
                 
                 <button class="secondary-button"><i class="fa fa-trash"></i></button>
-
-                <input type="checkbox" class="habit-status" id="habit-status-1">
+                <span class="listofhabits"></span>
+                <div style="display: flex;flex-direction:column; align-items: center;">
+                    <input type="checkbox" class="habit-status-completed" id="habit-status-completed-1">
+                    <p>Completed</p>
+                </div>
+                <div style="display: flex;flex-direction:column; align-items: center;">
+                    <input type="checkbox" class="habit-status-skipped" id="habit-status-skipped">
+                    <p>Skipped</p>
+                </div>
+                
+            </div>
+                
                 
                 
             </div>
@@ -180,7 +214,47 @@
     </main>
 
 
+<script>
 
+    function loadData()
+    {
+        const habitsContainer = document.getElementsByClassName("habit-container")[0];
+    let habits = [{"name" : "Gratitude","duration":"2 mins","description":"List down the things you are grateful for","status":"Pending"},{"name" : "Meditation","duration":"2mins","description":"Do meditation Breathing Techniques","status":"Pending"}];
+    
+    const habitDiv = document.createElement("div");
+    habits.forEach(element => {
+        habitDiv.id = "habit";
+    
+        habitDiv.innerHTML = 
+            `<div>
+                <h4>${element.name}</h4>
+                <p>${element.description}</p> 
+            </div>
+            <div>
+                <p>${element.duration}</p>
+            </div>
+            <div>
+                <i class="fa fa-edit"></i>
+            </div>
+            <button class="secondary-button"><i class="fa fa-trash"></i></button>
+            <span class="listofhabits"></span>
+            <div style="display: flex;flex-direction:column; align-items: center;">
+                <input type="checkbox" class="habit-status-completed" id="habit-status-completed-${habits.indexOf(element)}">
+                <p>Completed</p>
+            </div>
+            <div style="display: flex;flex-direction:column; align-items: center;">
+                <input type="checkbox" class="habit-status-skipped" id="habit-status-skipped-${habits.indexOf(element)}">
+                <p>Skipped</p>
+            </div>`
+
+        });
+        habitsContainer.appendChild(habitDiv);
+
+
+
+    }
+
+</script>
 
 </body>
 </html>

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
-    <script src="https://kit.fontawesome.com/69a2a834c2.js" crossorigin="anonymous"></script>   
+    <script src="https://kit.fontawesome.com/69a2a834c2.js" crossorigin="anonymous"></script>  
+    <script> let habits = [{"name" : "Gratitude","duration":"2 mins","description":"List down the things you are grateful for","status":"Pending"},{"name" : "Meditation","duration":"2 mins","description":"Do meditation Breathing Techniques","status":"Pending"}];</script> 
     <style>
 
         
@@ -72,7 +73,7 @@
         #habit
         {
             display: flex;
-            align-items: center;
+            justify-content: space-evenly;
             margin-left: 20px;
             margin-right: 20px;
             margin-top: 10px;
@@ -151,6 +152,14 @@
             gap: 251px;
             margin-bottom: 1rem;
         }
+
+        .habitcenter{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap:20px;
+        }
     </style>
 </head>
 <body onload="loadData()">
@@ -164,10 +173,10 @@
 
         
             <div>
-                <input type="text" placeholder="Enter new Habit">
-                <input type="text" placeholder="Add Description">
-                <input type="text" placeholder="Add Duration">
-                <button class="primary-button">Add Habit</button>
+                <input type="text" placeholder="Enter new Habit" id="habit-text">
+                <input type="text" placeholder="Add Description" id="description">
+                <input type="text" placeholder="Add Duration" id="duration">
+                <button class="primary-button" onclick="Addhabits()">Add Habit</button>
             </div>
     
         
@@ -181,31 +190,6 @@
             </div>
 
             <div class="habit-container">
-            <div id="habit">
-                <div>
-                    <h4>Gratitude</h4>
-                    <p>List all the things you are thankful for</p>
-                </div>
-                <div>
-                    <p>2 mins</p>
-                </div>
-                <div>
-                    <i class="fa fa-edit"></i>
-                </div>
-                
-                <button class="secondary-button"><i class="fa fa-trash"></i></button>
-                <span class="listofhabits"></span>
-                <div style="display: flex;flex-direction:column; align-items: center;">
-                    <input type="checkbox" class="habit-status-completed" id="habit-status-completed-1">
-                    <p>Completed</p>
-                </div>
-                <div style="display: flex;flex-direction:column; align-items: center;">
-                    <input type="checkbox" class="habit-status-skipped" id="habit-status-skipped">
-                    <p>Skipped</p>
-                </div>
-                
-            </div>
-                
                 
                 
             </div>
@@ -219,24 +203,23 @@
     function loadData()
     {
         const habitsContainer = document.getElementsByClassName("habit-container")[0];
-    let habits = [{"name" : "Gratitude","duration":"2 mins","description":"List down the things you are grateful for","status":"Pending"},{"name" : "Meditation","duration":"2mins","description":"Do meditation Breathing Techniques","status":"Pending"}];
+
     
-    const habitDiv = document.createElement("div");
     habits.forEach(element => {
+        const habitDiv = document.createElement("div");
         habitDiv.id = "habit";
     
         habitDiv.innerHTML = 
+
             `<div>
                 <h4>${element.name}</h4>
                 <p>${element.description}</p> 
             </div>
-            <div>
+            <div class="habitcenter">
                 <p>${element.duration}</p>
-            </div>
-            <div>
                 <i class="fa fa-edit"></i>
+                <button class="secondary-button"><i class="fa fa-trash"></i></button>
             </div>
-            <button class="secondary-button"><i class="fa fa-trash"></i></button>
             <span class="listofhabits"></span>
             <div style="display: flex;flex-direction:column; align-items: center;">
                 <input type="checkbox" class="habit-status-completed" id="habit-status-completed-${habits.indexOf(element)}">
@@ -247,10 +230,25 @@
                 <p>Skipped</p>
             </div>`
 
+            habitsContainer.appendChild(habitDiv);
         });
-        habitsContainer.appendChild(habitDiv);
 
 
+
+    }
+
+    function Addhabits()
+    {
+        console.log("Preparing data");
+        let habit = document.getElementById("habit-text").value;
+        let description = document.getElementById("description").value;
+        let duration = document.getElementById("duration").value;
+
+        console.log("Adding data...");
+        habits.push({"name":habit,"description":description,"duration":duration,"status":"pending"})
+        loadData();
+
+        console.log("Data added");
 
     }
 

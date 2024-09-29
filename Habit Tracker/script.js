@@ -27,9 +27,6 @@ function loadData()
     const habitsContainer = document.getElementsByClassName("habit-container")[0];
     habitsContainer.innerHTML ="";
 
-    // const compltedContainer = document.getElementsByClassName("completed-habits-list")[0];
-    // compltedContainer.innerHTML ="";
-
 
 habits.forEach(element => {
     if(element.status == "Pending")
@@ -77,10 +74,10 @@ function Addhabits()
     let duration = document.getElementById("duration").value;
 
     console.log("Adding data...");
-    habits.push({"name":habit,"description":description,"duration":duration,"status":"pending"})
+    habits.push({"name":habit,"description":description,"duration":duration,"status":"Pending"})
     loadData();
 
-    console.log("Data added");
+    console.log(habits);
 
 }
 

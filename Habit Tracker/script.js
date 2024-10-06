@@ -22,6 +22,14 @@ function updateHabitStatus(index,status) {
     loadData();
 }
 
+function deleteHabit(index)
+{
+    habits.splice(index,1); 
+    console.log("Habit deleted");
+    loadData();
+ 
+}
+
 function loadData()
 {
     const habitsContainer = document.getElementsByClassName("habit-container")[0];
@@ -43,7 +51,7 @@ habits.forEach(element => {
         <div class="habitcenter">
             <p>${element.duration}</p>
             <i class="fa fa-edit"></i>
-            <button class="secondary-button"><i class="fa fa-trash"></i></button>
+            <button class="secondary-button" onclick="deleteHabit(${habits.indexOf(element)})"><i class="fa fa-trash"></i></button>
         </div>
         <span class="listofhabits"></span>
         <div style="display: flex;flex-direction:column; align-items: center;">

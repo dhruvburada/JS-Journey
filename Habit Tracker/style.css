@@ -169,3 +169,8 @@
 
 
         }
+
+        .update-button
+        {
+            display: none;
+        }

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
     <script src="https://kit.fontawesome.com/69a2a834c2.js" crossorigin="anonymous"></script>  
-    <script> let habits = [{"name" : "Gratitude","duration":"2 mins","description":"List down the things you are grateful for","status":"Pending"},{"name" : "Meditation","duration":"2 mins","description":"Do meditation Breathing Techniques","status":"Pending"}];</script> 
+    <script> 
+    let habits = [{"name" : "Gratitude","duration":"2 mins","description":"List down the things you are grateful for","status":"Pending"},{"name" : "Meditation","duration":"2 mins","description":"Do meditation Breathing Techniques","status":"Pending"}];
+    let currentHabitIndex = -1;
+    </script> 
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -24,6 +27,8 @@
                 <input type="text" placeholder="Add Description" id="description">
                 <input type="text" placeholder="Add Duration" id="duration">
                 <button class="primary-button" onclick="Addhabits()">Add Habit</button>
+                <button class="primary-button update-button" onclick="Updatehabit()">Update Habit</button>
+
             </div>
     
         

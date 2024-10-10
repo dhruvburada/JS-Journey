@@ -30,6 +30,41 @@ function deleteHabit(index)
  
 }
 
+function Updatehabit()
+{
+
+    if(currentHabitIndex != -1)
+    {
+
+        let habit = document.getElementById("habit-text").value;
+        let description = document.getElementById("description").value;
+        let duration = document.getElementById("duration").value;
+        habits[currentHabitIndex].name = habit;
+        habits[currentHabitIndex].description = description;
+        habits[currentHabitIndex].duration = duration;
+        loadData();
+        document.getElementsByClassName("primary-button")[0].style.display = "inline-block";
+        document.getElementsByClassName("update-button")[0].style.display = "none";
+        document.getElementById("habit-text").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("duration").value = "";
+    }
+
+}
+
+function editHabit(index)
+{
+    currentHabitIndex = index;
+    document.getElementsByClassName("primary-button")[0].style.display = "none";
+    document.getElementsByClassName("update-button")[0].style.display = "inline-block";
+    
+    document.getElementById("habit-text").value = (String)(habits[index].name);
+    document.getElementById("description").value = habits[index].description;
+    document.getElementById("duration").value = habits[index].duration;
+
+
+}
+
 function loadData()
 {
     const habitsContainer = document.getElementsByClassName("habit-container")[0];
@@ -50,7 +85,7 @@ habits.forEach(element => {
         </div>
         <div class="habitcenter">
             <p>${element.duration}</p>
-            <i class="fa fa-edit"></i>
+            <i class="fa fa-edit" onclick="editHabit(${habits.indexOf(element)})"></i>
             <button class="secondary-button" onclick="deleteHabit(${habits.indexOf(element)})"><i class="fa fa-trash"></i></button>
         </div>
         <span class="listofhabits"></span>
@@ -76,12 +111,10 @@ habits.forEach(element => {
 
 function Addhabits()
 {
-    console.log("Preparing data");
     let habit = document.getElementById("habit-text").value;
     let description = document.getElementById("description").value;
     let duration = document.getElementById("duration").value;
 
-    console.log("Adding data...");
     habits.push({"name":habit,"description":description,"duration":duration,"status":"Pending"})
     loadData();
 

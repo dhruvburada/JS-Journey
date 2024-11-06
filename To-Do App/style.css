@@ -1,0 +1,77 @@
+
+header
+{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: ske;
+}
+
+.line-through
+{
+    text-decoration: line-through;
+}
+
+
+button
+{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#taskInput
+{
+    padding: 10px;
+}
+
+
+.inputs
+{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.task-list
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin:0 50px 0 50px;
+}
+
+.task
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(235, 235, 235);
+    padding: 10px 20px;
+    border-radius: 2rem;
+}
+
+.line-through
+{
+    text-decoration: line-through;
+}
+
+.fa-solid
+{
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+#UpdateButton
+{
+    display: none;
+}

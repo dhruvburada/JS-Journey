@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To - Do App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/69a2a834c2.js" crossorigin="anonymous"></script>  
+    <script src="script.js"></script>
+</head>
+<body onload="displayTasks()">
+    <header>
+        To Do App
+    </header>
+    <div class="inputs">
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button onclick="addTask()" id="AddTask">Add Task</button>
+        <button onclick="updateTask()" id="UpdateButton">Update Task</button>
+    </div>
+    <h1 style="text-align: center;">Tasks</h1>
+    <div class="task-list">
+    </div>
+</body>
+</html>

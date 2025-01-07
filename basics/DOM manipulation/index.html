@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <p id="temp">Temp Text to be removed</p>
+</body>
+
+<script>
+    let body = document.body;
+    
+//Create a Element
+    let fname = document.createElement("div");
+
+//Modify Element contents
+
+    //We can modify the text content of any element using innerText and textContent attributes 
+    //while fetching textContent attributes  it fetches the textContent from the web so it includes indentations 
+    fname.innerText = "Dhruv";
+
+    let lname = document.createElement("div");
+    lname.innerText="Burada";
+
+//Reflect content on web page
+    //to add  created content in the DOM We have two methods one is append and one is appendChild
+    //append accepts both string and html elements as arguments it can have multiple arguments
+    //but appendChild accepts only one html element as arguments
+    body.append(fname,lname);
+
+
+    //To remove element from DOM
+    let temp = document.querySelector("#temp");
+    //temp.remove();    
+
+    //remove element from its parent Element 
+    //body.removeChild(temp);
+
+//fetching attributes
+
+
+    console.log("Accessing using getAttribute: "+temp.getAttribute("id")); //or
+    console.log("Accessing attribute Directly :"+temp.id);
+
+//modifying attributes
+    //It will add id="fname" to the div tags we created
+    fname.setAttribute("id", "fname");
+    lname.id = "lname";
+
+    //adding inline css using setAttribute
+    fname.setAttribute("style","color:red")
+
+    //adding title using setAttribute
+
+    fname.setAttribute("title","First Name");
+    lname.title = "Last Name";
+
+//removing the attributes
+
+    fname.removeAttribute("id");
+
+//add class names
+
+    fname.classList.add("fname");
+    lname.classList.add("lname");
+
+    fname.classList.add("bold");
+    lname.classList.add("italic");
+
+//remove class name
+
+    fname.classList.remove("bold");
+    lname.classList.remove("italic");
+
+//toggle class name : add if it exists remove if it does not
+
+    fname.classList.toggle("bold");
+    lname.classList.toggle("lname");
+
+//modify css of element 
+
+    lname.style.color = "blue";
+    fname.style.fontWeight = "bold";
+    fname.style.fontStyle = "italic";
+
+</script>
+</html>

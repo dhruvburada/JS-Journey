@@ -1,0 +1,27 @@
+
+<script>
+
+function evenorodd(){
+    let num = document.getElementById('num').value;
+    num = Number(num);
+
+    if(num%2 == 0)
+    {
+        document.getElementById('output').innerHTML="Is Even";
+    }
+    else
+    {
+        document.getElementById('output').innerHTML="Is Odd";
+    }
+}
+</script>
+
+
+<html>
+    <body>
+        <h1>Even or Odd Number</h1>
+        Number: <input type="text" id="num">
+        <input type="button" value="Find out" onclick="evenorodd()">
+        <span id="output"></span>
+    </body>
+</html>

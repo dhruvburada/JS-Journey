@@ -1,0 +1,1 @@
+export let webTech = ["HTML","CSS","Javascript","React","Tailwind"];

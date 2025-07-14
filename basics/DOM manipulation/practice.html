@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+
+    <style>
+
+      .heading
+      {
+          font-weight: 600;
+          font size: 2rem;
+
+      }
+
+      .bio
+      {
+
+        font-size: 1.5rem;
+      }
+
+      body{
+        background-color: #212121;
+        color: #ffff;
+      }
+
+      .container
+      {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .hidden
+      {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="heading">Dhruv Burada</h1>
+      <p class="bio">
+        My name is Dhruv Burada and I am a software developer.<span
+          class="hidden"
+          >This is not visible</span
+        >
+      </p>
+    </div>
+  </body>
+
+  <script>
+    let container = document.querySelector(".container");
+    let bio = document.querySelector(".bio");
+    let para = document.querySelector("p");
+    let greeting = document.createElement("h1");
+    greeting.textContent = "Hello, World!";
+
+    para.setAttribute("class", "small-para");
+    container.append(greeting);
+    setTimeout(() => {
+      para.remove();
+    }, 6000);
+
+    console.log(bio.textContent);
+    console.log(bio.innerText);
+    container.append(greeting);
+    container.classList.toggle("hidden");
+  </script>
+</html>

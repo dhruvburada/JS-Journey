@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <div class="todo-container">
+      "Somthing"
+      <ul id="todo-list">
+        <li>Task 1 <button class="delete">❌</button></li>
+        <li>Task 2 <button class="delete">❌</button></li>
+        <li>Task 3 <button class="delete">❌</button></li>
+      </ul>
+    </div>
+    <script>
+      let todoList = document.getElementById("todo-list");
+
+      console.log(todoList.parentElement);
+      console.log(todoList);
+      document
+        .getElementById("todo-list")
+        .addEventListener("click", function (e) {
+          if (e.target.classList.contains("delete")) {
+            e.target.closest("li").remove(); // remove the clicked item
+          }
+        });
+    </script>
+  </body>
+</html>

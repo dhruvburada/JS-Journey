@@ -214,3 +214,37 @@ function fetchData2() {
 retry(fetchData2, 3)
   .then((data) => console.log("Result:", data))
   .catch((err) => console.error("Error:", err));
+
+// ✅ Step-by-step Instructions:
+// Create 3 functions that return Promises:
+// fetchUser() → resolves with "User data"
+// fetchPosts() → rejects with "Posts failed"
+// fetchComments() → randomly resolves or rejects
+// Use Promise.allSettled() to run all three at once.
+// Loop through the result and:
+// Log "✅ Success:" with the value if fulfilled
+// Log "❌ Failed:" with the reason if rejected
+
+// 🧾 What is Promise.allSettled()?
+// Promise.allSettled() is a method that takes an array of promises and waits for all of them to settle — meaning either:
+
+// ✅ fulfilled (resolved), or
+
+// ❌ rejected
+
+// It returns a new promise that resolves after all input promises are settled, and it gives you their outcomes (success or failure), without short-circuiting like Promise.all().
+
+function promiseSettlesDemo() {
+  let fetchUser = () => new Promise((res) => res("User Data"));
+  let fetchPosts = () => new Promise((_, rej) => rej("Posts failed"));
+  let fetchComments = () =>
+    new Promise((res, rej) =>
+      Math.random() < 0.5 ? res("Comments Data") : rej("Comments failed")
+    );
+
+  Promise.allSettled([fetchUser(), fetchPosts(), fetchComments()]).then((val) =>
+    console.log(val)
+  );
+}
+
+promiseSettlesDemo();

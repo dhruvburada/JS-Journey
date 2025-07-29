@@ -150,9 +150,9 @@ h1 {
     font-weight: bold;
 }
 
-/* .hidden {
+.hidden {
     display: none;
-} */
+}
 
 .locked-text {
     filter: blur(2.5px);

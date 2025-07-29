@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Battle</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>🔥 Quote Battle</h1>
+      <p class="subtitle">Pick the quote that inspires you more</p>
+
+      <div class="battle-box">
+        <div class="quote-card" id="quote1">
+          <p class="quote-text" id="quoteText1">"Quote one goes here..."</p>
+          <p class="quote-author locked-text" id="quoteAuthor1">– Author One</p>
+          <button class="vote-btn" onclick="vote(0)">Vote</button>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="quote-card" id="quote2">
+          <p class="quote-text" id="quoteText2">"Quote two goes here..."</p>
+          <p class="quote-author locked-text" id="quoteAuthor2">– Author Two</p>
+          <button class="vote-btn" onclick="vote(1)">Vote</button>
+        </div>
+      </div>
+
+      <button class="show-leaderboard" onclick="showLeaderBoard()">
+        🏆 Show Leaderboard
+      </button>
+      <div id="leaderboard" class="leaderboard hidden" id="leaderboard-list">
+        <h2>Top Voted Quotes</h2>
+        <table class="leaderboard-list">
+          <tr>
+            <th>Quotes</th>
+            <th>Author</th>
+            <th>Score</th>
+          </tr>
+
+          <tr>
+            <!-- Data will be dynamically generated here -->
+          </tr>
+        </table>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

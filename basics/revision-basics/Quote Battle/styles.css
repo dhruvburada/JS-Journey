@@ -1,0 +1,166 @@
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    padding: 2rem;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #222;
+}
+
+.subtitle {
+    margin: 0.5rem 0 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.battle-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.quote-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    position: relative;
+    min-height: 255px;
+}
+
+.quote-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.vote-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    background: #0077ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    justify-self: end;
+}
+
+
+
+.vote-btn:hover {
+    background: #005fe0;
+}
+
+.vs {
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #999;
+}
+
+.show-leaderboard {
+    background: #444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+}
+
+.leaderboard {
+    text-align: left;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.leaderboard-list {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.leaderboard-list th,
+.leaderboard-list td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.leaderboard-list th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.leaderboard-list tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+.leaderboard-list td {
+    color: #333;
+    vertical-align: top;
+}
+
+/* Optional: Highlight top 1 */
+.leaderboard-list tr:nth-child(2) td {
+    background-color: #fffbea;
+    font-weight: bold;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+.locked-text {
+    filter: blur(2.5px);
+    pointer-events: none;
+    /* optional: prevents copy */
+    user-select: none;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
